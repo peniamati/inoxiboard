@@ -9,33 +9,89 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import { faker } from "@faker-js/faker";
 
 function WeeklySalesChart() {
+
+  const labels = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+  ];
+
   const tabs = [
     {
       title: "Sales",
       type: "sales",
-      current: true,
+      data: {
+        labels,
+        datasets: [
+          {
+            label: "Sales",
+            data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
+            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+          },
+        ],
+      }
     },
     {
       title: "Orders",
       type: "orders",
-      current: false,
+      data: {
+        labels,
+        datasets: [
+          {
+            label: "Orders",
+            data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
+            borderColor: "rgb(0, 137, 132)",
+            backgroundColor: "rgba(0, 137, 132, 0.5)",
+          },
+        ],
+      }
     },
   ];
+
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+      title: {
+        display: false,
+        text: "Chart.js Line Chart",
+      },
+    },
+  };
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Sales",
+        data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
 
   const [chartToDisplay, setChartToDisplay] = useState(tabs[0].type);
   return (
@@ -67,7 +123,7 @@ function WeeklySalesChart() {
         {/* Content to display */}
         {tabs.map((tab, index) => {
           if (chartToDisplay === tab.type) {
-            return <h2>{tab.title}</h2>;
+            return <Line options={options} data={tab.data} key={index}/>;
           }
           return null;
         })}
