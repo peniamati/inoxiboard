@@ -95,12 +95,12 @@ function WeeklySalesChart() {
 
   const [chartToDisplay, setChartToDisplay] = useState(tabs[0].type);
   return (
-    <div className="bg-slate-700 p-8 rounded-lg">
-      <h2 className="text-xl font-bold mb-4">Best Selling Charts</h2>
+    <div className="bg-slate-50 dark:bg-slate-700 p-8 rounded-lg">
+      <h2 className="text-xl font-bold mb-4 text-slate-800 dark:text-slate-50">Best Selling Charts</h2>
       <div className="p-4">
         {/* Tabs */}
 
-        <ul className="flex flex-wrap text-sm font-medium text-center text-gray-200 border-b border-gray-200 dark:border-gray-400 dark:text-gray-400">
+        <ul className="flex flex-wrap text-sm font-medium text-center text-slate-600 border-b border-gray-200 dark:border-gray-400 dark:text-slate-100">
           {tabs.map((tab, index) => {
             return (
               <li className="me-2" key={index}>

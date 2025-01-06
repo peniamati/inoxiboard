@@ -19,7 +19,7 @@ function CustomDataTable() {
 
   return (
     <div className="p-6">
-      <h2 className="text-xl font-bold mb-4">Recent Orders</h2>
+      <h2 className="text-xl font-bold mb-4 text-slate-800 dark:text-slate-50">Recent Orders</h2>
       <div className="p-8">
         {/* Table */}
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
