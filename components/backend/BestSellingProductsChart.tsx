@@ -40,7 +40,7 @@ function BestSellingProductsChart() {
   };
 
   return (
-    <div className="dark:bg-slate-700 bg-slate-50 p-8 rounded-lg">
+    <div className="bg-slate-50 dark:bg-slate-700 p-8 rounded-lg shadow-xl">
       <h2 className="text-xl font-bold mb-4 dark:text-slate-50 text-slate-900">Best Selling Products Charts</h2>
       {/* Chart */}
       <div className="p-4">

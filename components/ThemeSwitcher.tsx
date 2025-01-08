@@ -17,10 +17,12 @@ export function ThemeSwitcher() {
 
   return (
     <button
-      className="dark:text-lime-500"
+      className="text-green-600"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme === "light" ? <Moon /> : <Sun />}
     </button>
   );
 }
+
+export default ThemeSwitcher;

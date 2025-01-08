@@ -95,8 +95,8 @@ function WeeklySalesChart() {
 
   const [chartToDisplay, setChartToDisplay] = useState(tabs[0].type);
   return (
-    <div className="bg-slate-50 dark:bg-slate-700 p-8 rounded-lg">
-      <h2 className="text-xl font-bold mb-4 text-slate-800 dark:text-slate-50">Best Selling Charts</h2>
+    <div className="bg-slate-50 dark:bg-slate-700 p-8 rounded-lg shadow-xl">
+      <h2 className="text-xl font-bold mb-4 text-slate-800 dark:text-slate-50">Weekly Sales</h2>
       <div className="p-4">
         {/* Tabs */}
 
@@ -109,8 +109,8 @@ function WeeklySalesChart() {
                   aria-current="page"
                   className={
                     chartToDisplay === tab.type
-                      ? "inline-block p-4 text-orange-600 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-orange-500"
-                      : "inline-block p-4 rounded-t-lg hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+                      ? "inline-block p-4 text-orange-500 bg-gray-300 rounded-t-lg active border-b-2 border-orange-500 dark:bg-gray-800 dark:text-orange-500"
+                      : "inline-block p-4 rounded-t-lg hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-300"
                   }
                 >
                   {tab.title}
